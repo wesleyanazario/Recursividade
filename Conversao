@@ -1,0 +1,32 @@
+package conversao;
+import static javax.swing.JOptionPane.showInputDialog;
+import static javax.swing.JOptionPane.showMessageDialog;
+import static java.lang.Integer.parseInt;
+import static java.lang.Double.parseDouble;
+public class conversao {
+
+	public static void main(String[] args) {
+		float x = 0;
+		int i = 0;
+		int j = 0;
+		String numero;
+		numero = showInputDialog("Numero :");
+		i = numero.length();
+		showMessageDialog(null,converter(numero,x,i,j));
+	}
+
+	private static String converter(String numero, float x, int i,int j) {
+		String[] bi = numero.split("");
+		
+		if(i == 0) {
+			return "Valor em Decimal =  "+x;
+		}else {
+			i--;
+			x += (parseDouble(bi[i])*Math.pow(2,j));
+			j++;
+			return converter(numero,x,i,j);
+		}
+			
+	}
+			
+}
